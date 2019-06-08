@@ -47,6 +47,7 @@ header {
     width: 100%;
     margin-top: 6em;
 }
+video{width:100%}
 p {
     line-height: 30px;
 }
@@ -444,15 +445,53 @@ footer p {
 .about-page .founder-text p {
     color: #fff !important;
 }
-video {
+.good_luck {
+    display: inline-block;
     width: 100%;
+}
+.good_luck img {
+    margin-bottom: 30px;
+}
+/*live-raffles*/
+.font-24 h2 {
+    font-size: 24px;
+}
+#lightgrey {
+    background-color: #eee;
+}
+.row.mar-top-btm {
+    margin: 3em -15px;
+}
+.green {
+    color: #2bde73;
+}
+.recent_winner_slider.past_winner .slick-prev, .recent_winner_slider.past_winner .slick-next {
+    display: block !important;
+}
+.recent_winner_slider.past_winner .slick-prev, .recent_winner_slider.past_winner .slick-next {
+    background-color: #191919;
+    top: -67px;
+}
+.recent_winner_slider.past_winner .slick-prev {
+    left: 450px;
+}
+.recent_winner_slider.past_winner .slick-next {
+    right: 450px;
+}
+.arrow-mar {
+    margin: 20px 0px;
 }
 /*responsive*/
 @media(max-width:1199px){
 .item img {
     width: 90%;
 }
-
+.recent_winner_slider.past_winner .slick-next {
+    right: 370px;
+}
+.recent_winner_slider.past_winner .slick-prev {
+    left: 370px;
+}
 .circle h4 br {
     display: none;
 }
@@ -513,6 +552,12 @@ a.nav-link {
 .col-md-3.col-sm-6.col-xs-12:last-child .circle {
     margin-bottom: 0px !important;
 }
+.recent_winner_slider.past_winner .slick-next {
+    right: 250px;
+}
+.recent_winner_slider.past_winner .slick-prev {
+    left: 250px;
+}
 }
 @media (max-width:767px){
 	.col-md-3.col-sm-6.col-xs-12:nth-child(4) .circle .num:after {
@@ -542,6 +587,12 @@ a.nav-link {
 .about-page .about-info h2 {
     margin-top: 25px;
 }
+.recent_winner_slider.past_winner .slick-next {
+    right: 150px;
+}
+.recent_winner_slider.past_winner .slick-prev {
+    left: 150px;
+}
 }
 @media(max-width:575px){
 .progess_box .box_img {
@@ -561,5 +612,16 @@ footer ul {
 }
 .newsletter input[type="text"] {
     width: 75%;
+}
+.font-24 {
+    text-align: center !important;
+}
+}
+@media(max-width:480px){
+.recent_winner_slider.past_winner .slick-next {
+    right: 50px;
+}
+.recent_winner_slider.past_winner .slick-prev {
+    left: 50px;
 }
 }

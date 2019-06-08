@@ -14,4 +14,12 @@ class PagesController extends Controller
         $title = 'About Us';
         return view('pages.about')->with('title',$title);
     }
+    public function liveraffles(){
+        $title = 'Live Raffles';
+        return view('pages.liveraffles')->with('title', $title);
+    }
+    public function pastwinners(){
+        $title = 'Past Winners';
+        return view('pages.pastwinners')->with('title',$title);
+    }
 }

@@ -13,6 +13,13 @@
 
 Route::get('/','PagesController@index')->name('home');
 Route::get('/about','PagesController@about')->name('about');
+Route::get('/liveraffles','PagesController@liveraffles')->name('liveraffles');
+Route::get('/pastwinners','PagesController@pastwinners')->name('pastwinners');
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('index');
+Route::get('/admin', 'AdminController@index')->name('dashboard');
