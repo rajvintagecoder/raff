@@ -52,7 +52,7 @@ return [
             'provider' => 'admins',
         ],
 
-         'admin-apr' => [
+         'admin-api' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
