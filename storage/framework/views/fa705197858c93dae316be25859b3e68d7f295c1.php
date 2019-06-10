@@ -6,8 +6,8 @@
 			</div>
 			<div class="col-sm-6">
 				<ul>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Terms of Play</a></li>
+				<li><a href="<?php echo e(route('contactus')); ?>">Contact Us</a></li>
+				<li><a href="<?php echo e(route('termsplay')); ?>">Terms of Play</a></li>
 					<li><a href="#">Privacy</a></li>
 				</ul>
 			</div>

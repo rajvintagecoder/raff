@@ -14,7 +14,7 @@
 
 </head>
 <?php $route = Route::currentRouteName();?>
-<body <?php if($route == 'home'){ ?> class="home" <?php }?>>
+<body <?php if($route == 'home'){ ?> class="home" <?php }else { ?>class="height_vh"<?php } ?>>
      <div id="app">
      @include('inc.header')   
           @yield('content')

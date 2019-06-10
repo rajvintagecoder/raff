@@ -13,7 +13,7 @@ class Admin extends Authenticatable
     protected $guard = 'admin';
 
     /**
-     * The attributes that are mass assignable.
+     * he attributes that are mass assignable.T
      *
      * @var array
      */

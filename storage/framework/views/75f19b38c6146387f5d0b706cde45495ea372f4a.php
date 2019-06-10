@@ -14,7 +14,7 @@
 
 </head>
 <?php $route = Route::currentRouteName();?>
-<body <?php if($route == 'home'){ ?> class="home" <?php }?>>
+<body <?php if($route == 'home'){ ?> class="home" <?php }else { ?>class="height_vh"<?php } ?>>
      <div id="app">
      <?php echo $__env->make('inc.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>   
           <?php echo $__env->yieldContent('content'); ?>

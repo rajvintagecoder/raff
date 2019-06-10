@@ -24,7 +24,7 @@
 			<a class="nav-link" href="#">How to enter</a>
 		  </li> 
 		  <li class="nav-item">
-			<a class="nav-link" href="#">FAQs</a>
+		  <a class="nav-link" href="{{route('faqs')}}">FAQs</a>
 		  </li>
 			   @guest
                             <li class="nav-item green-btn">

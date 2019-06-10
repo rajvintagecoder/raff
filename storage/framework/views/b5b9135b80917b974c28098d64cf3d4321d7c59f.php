@@ -24,7 +24,7 @@
 			<a class="nav-link" href="#">How to enter</a>
 		  </li> 
 		  <li class="nav-item">
-			<a class="nav-link" href="#">FAQs</a>
+		  <a class="nav-link" href="<?php echo e(route('faqs')); ?>">FAQs</a>
 		  </li>
 			   <?php if(auth()->guard()->guest()): ?>
                             <li class="nav-item green-btn">

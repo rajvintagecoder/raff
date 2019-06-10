@@ -31,6 +31,19 @@
     font-style: normal;
 
 }
+/*Custom Classes*/
+padd0 {padding:0px;}
+video{width:100%}
+.form-check{padding-left:5px;}
+.link-container {
+    margin-top: -5px;
+    margin-bottom: 25px;
+}
+a.forget-link {
+    color: #000;
+    font-family:'hk_groteskmedium';
+    letter-spacing: .5px;
+}
 body{
 	font-family: 'hk_groteskmedium';
 	letter-spacing: 1px; 
@@ -47,7 +60,6 @@ header {
     width: 100%;
     margin-top: 6em;
 }
-video{width:100%}
 p {
     line-height: 30px;
 }
@@ -480,6 +492,208 @@ footer p {
 }
 .arrow-mar {
     margin: 20px 0px;
+}
+/*FQAs*/
+.card-header {
+    border-bottom: none;
+    background: transparent;
+    margin: 10px 0px;
+}
+
+.card {
+    border: none;
+    background: transparent;
+}
+
+.card button.btn.btn-link {
+    font-size: 24px!important;
+    font-family: 'hk_groteskmedium';
+    font-weight: 400;
+    line-height: 34px;
+    color: #2bde73;
+    letter-spacing: 1px;
+	padding:0px 12px;
+	position:relative;
+}
+.card button.btn.btn-link:hover,.card button.btn.btn-link:focus{text-decoration:none;}
+
+.card-body {
+    padding: 0px 34px;
+}
+.card .card-header .btn.collapsed:before {
+    background: url(../images/toggle-open.png) no-repeat left transparent;
+}
+
+.card .card-header .btn:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    left: -15px;
+    background: url(../images/toggle-close.png);
+    background-repeat: no-repeat;
+}
+/*form*/
+.form-style {
+    display: inline-block;
+    width: 33%;
+    margin: 0 auto;
+}
+.form-style input {
+    font-family: 'FontAwesome','hk_groteskmedium';
+}
+.form-style input, .form-style textarea{
+    border: 2px solid #2bde73;
+    padding: 10px 20px;
+    border-radius: 3px;
+    width: 100%;
+	margin-bottom: 30px;
+    background: transparent;	
+}
+.form-style input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+.form-style input::placeholder,.form-style textarea::placeholder {
+    color: rgba(153, 153, 153, 0.23921568627450981);
+}
+.form-style button {
+    width: 100%;
+    background-color: #2bde73;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;	
+}
+/*password-reset-email*/
+.tick_circle {
+    display: inline-block;
+    width: 100%;
+}
+.tick_circle .title h2 {
+    margin-bottom: 10px;
+}
+
+.tick_circle img {
+    margin-bottom: 30px;
+}
+.tick_circle .site_green_btn a {
+    margin-top: 0px;
+}
+/*My account*/
+.my_account {
+    width: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 20px 0px;
+}
+
+.sidebar ul li a {
+    color: #191919;
+}
+
+.sidebar ul li a.green {
+    color: #2bde73;
+}
+.display_inline {
+    display: inline-block;
+    float: left;
+}
+.part-right_img {
+    margin-left: 30px;
+}
+
+.part-right_img p {
+    margin-bottom: 0px;
+}
+.border_radius {
+    border: 3px solid #2bde73;
+    padding: 20px;
+    border-radius: 5px;
+}
+.tab-content .tab-pane .col-md-6 {
+    display: inline-block;
+    float: left;
+}
+.nav-tabs.col-md-12 {
+    text-align: center;
+    float: none;
+    margin-bottom: 30px;
+    border-bottom: none;
+}
+
+.nav-tabs a {
+    background-color: #191919;
+    color: #fff;
+    padding: 10px 40px;
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.nav-tabs li a.active {
+    background-color: #2bde73;
+}
+
+.nav-tabs li {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+.nav-tabs li.active {
+    text-align: right;
+}
+
+.nav-tabs li:first-child a {
+    border-radius: 10px 0px 0px 10px;
+    margin-right: 2px;
+}
+
+.nav-tabs li:last-child a {
+    border-radius: 0px 10px 10px 0px;
+}
+/*prize*/
+.single-right-side h4 {
+    margin-bottom: 30px;
+}
+#desc {
+    background-color: #f1f1f1;
+}
+.progress_ticket-info {
+    display: inline-block;
+    width: 100%;
+}
+.btn-danger, .btn-success, input#quantity, .btn-danger:focus {
+    background: #f1f1f1 !important;
+    border-color: #f1f1f1 !important;
+    box-shadow: none !important;
+}
+
+.quantity span.input-group-btn i {
+    color: #191919;
+}
+
+.quantity input#quantity {
+    text-align: center;
+}
+.quantity{
+	margin-top:30px;
+}
+.quantity input#quantity::placeholder {
+    color: #191919;
+}
+/*height-vh*/
+.height_vh #white {
+    min-height: 83vh;
 }
 /*responsive*/
 @media(max-width:1199px){
