@@ -1,23 +1,65 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Admin Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in as <strong>ADMIN</strong>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="white" class="padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="sidebar">
+					<ul>
+						<li><a href="#">Account Details</a></li>
+						<li><a href="#" class="green">My Tickets</a></li>
+						<li><a href="#">Sign Out</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row ">
+				 <ul class="nav nav-tabs col-md-12">
+					<li class="active"><a class="active" data-toggle="tab" href="#live">live</a></li>
+					<li><a data-toggle="tab" href="#past">past</a></li>
+				 </ul>
+				<div class="tab-content border_radius col-md-12">
+					<div id="live" class="tab-pane fade show active ">
+						<div class="col-md-6">
+							<div class="progess_box display_inline">
+								<img width="150" src="images/img1.jpg">
+							</div>
+							<div class="display_inline part-right_img">
+								<h5>Raffle Name</h5>
+								<p>Ticket number: <span class="green">3</span></p>
+								<p>Ticket number: <span class="green">8</span></p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="part-right">
+								<h5>Raffle closes in:</h5>
+								<p><span class="green">15</span>d <span class="green">9</span>h <span class="green">22</span>m <span class="green">15</span>s</p>
+							</div>
+						</div>
+					</div>
+					<div id="past" class="tab-pane fade ">
+						<div class="col-md-6">
+							<div class="progess_box display_inline">
+								<img width="150" src="images/img1.jpg">
+							</div>
+							<div class="display_inline part-right_img">
+								<h5>Raffle Name11</h5>
+								<p>Ticket number: <span class="green">3</span></p>
+								<p>Ticket number: <span class="green">8</span></p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="part-right">
+								<h5>Raffle closes in:</h5>
+								<p><span class="green">15</span>d <span class="green">9</span>h <span class="green">22</span>m <span class="green">15</span>s</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 @endsection

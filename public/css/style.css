@@ -44,9 +44,10 @@ a.forget-link {
     font-family:'hk_groteskmedium';
     letter-spacing: .5px;
 }
+/*custom css ends */
 body{
 	font-family: 'hk_groteskmedium';
-	letter-spacing: 1px; 
+	letter-spacing: 1px;
 }
 *:focus {
     outline: 0;
@@ -56,7 +57,7 @@ button:focus{
 }
 a:hover{text-decoration:none;}
 img{max-width:100%;}
-header {	
+header {
     width: 100%;
     margin-top: 6em;
 }
@@ -70,7 +71,7 @@ p {
 }
 .navbar-nav li.nav-item .nav-link {
     color: #fff;
-    margin: 0px 15px;	
+    margin: 0px 15px;
 }
 .navbar-nav li.nav-item .nav-link:hover {
     color: #2bde73;
@@ -197,7 +198,7 @@ ul.sub-menu li:last-child a {
 }
 .progess_box img {
     border: 8px solid rgba(153, 153, 153, 0.23921568627450981);
-    border-radius: 5px;	
+    border-radius: 5px;
 }
 .sold_out {
     background-color: red;
@@ -340,7 +341,7 @@ ul.sub-menu li:last-child a {
 .circle h4 {
     color: #fff;
     margin-top: 20px;
-	font-size: 18px;	
+	font-size: 18px;
 }
 .circle .num:after {
     content: "";
@@ -372,9 +373,9 @@ ul.sub-menu li:last-child a {
     padding: 8px 35px;
     margin-top: 20px;
     font-size: 22px;
-    display: inline-block;	
-    font-weight: bold;	
-    border-radius: 3px;	
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 3px;
 }
 .newsletter input[type="text"] {
     background: transparent;
@@ -410,7 +411,7 @@ footer ul {
 
 footer ul li a,footer ul li a:hover {
     color: #fff;
-    font-size: 14px;	
+    font-size: 14px;
 }
 
 footer p {
@@ -549,7 +550,7 @@ footer p {
     border-radius: 3px;
     width: 100%;
 	margin-bottom: 30px;
-    background: transparent;	
+    background: transparent;
 }
 .form-style input[type="checkbox"] {
     width: auto;
@@ -566,7 +567,7 @@ footer p {
     padding: 8px;
     border-radius: 3px;
     font-size: 20px;
-    cursor: pointer;	
+    cursor: pointer;
 }
 /*password-reset-email*/
 .tick_circle {
@@ -691,6 +692,27 @@ footer p {
 .quantity input#quantity::placeholder {
     color: #191919;
 }
+/*cart*/
+.cart ul {
+    list-style: none;
+    padding-left: 25px;
+}
+.cart_price {
+    padding-right: 60px;
+    margin-top: 32px;
+}
+.cart_price h5 {
+    margin-top: 30px;
+}
+.cart_price span.icon:after {
+    content: "\f2ed";
+    color: #b1b1b1;
+    font-family: Font Awesome\ 5 Free;
+    padding-left: 20px;
+    position: absolute;
+    font-size: 14px;
+}
+.mar-top{margin-top:50px;}
 /*height-vh*/
 .height_vh #white {
     min-height: 83vh;
@@ -819,7 +841,7 @@ footer {
 }
 footer ul {
     float: none;
-    display: inline-block;	
+    display: inline-block;
 }
 .circle {
     width: 70%;
