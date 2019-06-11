@@ -4,15 +4,7 @@
 <section id="white" class="padding">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="sidebar">
-					<ul>
-						<li><a href="#">Account Details</a></li>
-						<li><a href="#" class="green">My Tickets</a></li>
-						<li><a href="#">Sign Out</a></li>
-					</ul>
-				</div>
-			</div>
+            @include('inc.admin_left_nav')
 			<div class="col-md-8">
 				<div class="row ">
 				 <ul class="nav nav-tabs col-md-12">

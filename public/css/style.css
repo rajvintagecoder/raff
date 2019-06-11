@@ -44,6 +44,33 @@ a.forget-link {
     font-family:'hk_groteskmedium';
     letter-spacing: .5px;
 }
+.create-raffle select {
+    width: 100%;
+    border: 2px solid #2bde73;
+    padding: 10px 20px;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 30px;
+    background: transparent;
+}
+div#ticket_price_form {
+}
+
+div#ticket_price_form span.input-group-btn {
+    display: inline-block;
+}
+
+.price-btn-ticket input {
+    width: inherit;
+}
+
+.price-btn-ticket {
+    display: inline-block;
+}
+
+#ticket_price_form label {
+    width: 100%;
+}
 /*custom css ends */
 body{
 	font-family: 'hk_groteskmedium';

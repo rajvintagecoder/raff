@@ -28,6 +28,11 @@ Route::get('/home', 'HomeController@index')->name('index');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile/update', 'ProfileController@update')->name('update');
 
+//for admin package management
+Route::get('/rafflrs', 'RafflrsController@index')->name('rafflrs');
+Route::get('/account', 'AccountController@index')->name('account');
+
+
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
