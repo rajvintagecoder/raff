@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Profile;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Validator;
+use App\Profile;
+use DB;
 class ProfileController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $user = auth()->user();
+        return view('profile')->with("user",$user);
     }
 
     /**
@@ -42,10 +44,10 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show($id)
     {
         //
     }
@@ -53,10 +55,10 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit($id)
     {
         //
     }
@@ -65,21 +67,50 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request)
     {
-        //
+        $user = User::find(4);
+        //$user = auth()->user();
+        // dd(request()->all());
+
+        try{
+            //dd(request()->all());
+            $data = $request->validate([
+                'first_name' => 'required',
+                'phone' => 'required',
+                'address_line_1' => '',
+                'address_line_2' => '',
+                'city' => '',
+                'postcode' => '',
+            ]);
+            $user->name = $data['first_name'];
+            $user->phone = $data['phone'];
+            $user->address_line_1 = $data['address_line_1'];
+            $user->address_line_2 = $data['address_line_2'];
+            $user->city = $data['city'];
+            $user->postcode = $data['postcode'];
+            $user->save();
+         }
+         catch(\Exception $e){
+            // do task when error
+            echo $e->getMessage();   // insert query
+         }
+
+        // echo DB::enableQueryLog();
+        // die;
+        return redirect('/profile')->with('success', 'User has been updated!!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Profile  $profile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy($id)
     {
         //
     }

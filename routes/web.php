@@ -26,6 +26,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index');
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile/update', 'ProfileController@update')->name('update');
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
