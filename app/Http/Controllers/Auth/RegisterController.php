@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'phone' => 'required|numeric|digits_between:10,13',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'ageChecker' => ['required'],
         ]);
     }
 

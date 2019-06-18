@@ -8,7 +8,7 @@
 				<ul>
 				<li><a href="{{route('contactus')}}">Contact Us</a></li>
 				<li><a href="{{route('termsplay')}}">Terms of Play</a></li>
-					<li><a href="#">Privacy</a></li>
+				<li><a href="{{route('privacy')}}">Privacy</a></li>
 				</ul>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
     <section id="grey" class="padding">
 	<div class="container">
 		<div class="row">
-			<div class="title text-center"><h2>Live Raffles</h2></div>
+			<div class="title text-center"><h2>View ll Raffles</h2></div>
 			@foreach ($products as $product)
 			
 			<div class="col-md-3 col-sm-6 col-xs-12">
@@ -33,10 +33,10 @@
 				
 			@endforeach
 			
-		</div>
-			<ul class="pagination">
-         		 <li >{{$products->links()}}</li>
-            </ul>
+        </div>
+        	<ul class="pagination">
+                <li >{{$products->links()}}</li>
+          </ul>
 	</div>
 </section>
 @endsection

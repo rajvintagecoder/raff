@@ -24,7 +24,7 @@ class RafflrsController extends Controller
      */
     public function create()
     {
-        //
+        return "hello world";
     }
 
     /**

@@ -7,7 +7,7 @@
 		<h3> Win your dream <a href="" class="typewrite" data-period="2000" data-type='[ "car", "holiday", "gadget"]'>
 		<span class="wrap"></span>
 		</a></h3>
-		<div class="site_green_btn"><a href=""> View live raffles</a></div>
+	<div class="site_green_btn"><a href="{{route('viewall')}}"> View live raffles</a></div>
 	</div>
 </section>
 <section class="greenbar">
@@ -19,86 +19,40 @@
         </div>           
     </div>
 </section>
+
+
 <section id="grey" class="padding">
 	<div class="container">
 		<div class="row">
 			<div class="title text-center"><h2>Featured Raffles</h2></div>
+			@foreach ($products as $product)
+			
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="progess_box">
 					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img1.jpg')}}"></a>
+					<a href="/products/{{$product->id}}"><img src="storage/product_images/{{$product->product_image}}"></a>
 						<div class="prize">
-							<span>£50</span>
+						<span>£{{$product->price * $product->quantity}}</span>
 						</div>
 						<div class="box_content text-center">
-							<h4>Rafflrs 1</h4>
+						<h4>{{$product->product_name}}</h4>
+						<?php
+							$width = ($product->sold/$product->quantity)*100;
+						?>
 							<div class="progress">
 							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">					
+							  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:<?=round($width)?>%">	
+
 							  </div>
 							</div>
-							<p class="ticketquantity"> 20 / 50 tickets left </p>
+						<p class="ticketquantity"> {{$product->sold}} / {{$product->quantity}} tickets left </p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img2.jpg')}}"></a>
-						<div class="prize">
-							<span>£75</span>
-						</div>
-						<div class="box_content text-center">
-							<h4>Rafflrs 2</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 20 / 100 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img3.jpg')}}"></a>
-						<div class="prize sold_out">
-							<span>Sold Out</span>
-						</div>
-						<div class="box_content text-center">
-							<h4>Rafflrs 3</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 0 / 50 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img4.jpg')}}"></a>
-						<div class="prize">
-							<span>£55</span>
-						</div>
-						<div class="box_content text-center">
-							<h4>Rafflrs 4</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 30 / 50 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
+				
+			@endforeach
+			
 		</div>
 	</div>
 </section>

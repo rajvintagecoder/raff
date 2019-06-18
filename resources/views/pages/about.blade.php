@@ -11,7 +11,6 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 			</div>
 			<div class="col-md-5">
-                <video controls="" autoplay="" name="media" style="background-color: transparent;"><source src="http://hoshiarpurcyclingclub.in/kv1/wp-content/uploads/2018/05/V2_Rafflr_FINAL_SYNCED.mp4" type="video/mp4"></video>
 			</div>
 			<div class="col-md-12 raffrs-team">
 				<div class="about-info">
