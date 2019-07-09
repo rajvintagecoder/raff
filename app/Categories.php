@@ -10,7 +10,6 @@ class Categories extends Model
         'category_name', 'category_description'
     ];
    public function products(){
-       //return $this->hasMany('App\Product');
-         return $this->hasMany(Product::class);
+              return $this->hasMany(Product::class);
    }
 }

@@ -1,0 +1,84 @@
+.sidebar .logo{
+  background: #000;
+}
+a.simple-text.logo-normal img {
+    width: 100px;
+}
+.navbar.navbar-absolute{padding-top:14px;}
+.rafImg{border: 8px solid rgba(153, 153, 153, 0.23921568627450981);border-radius: 5px;}
+.height{height:20px}
+.roundBtn {
+    padding: 10px 14px !important;
+    border-radius: 50% !important;
+    font-size: 17px !important;
+    background: #000 !important;
+}
+.form-style input, .form-style textarea {
+    border: 2px solid #2bde73;
+    padding: 10px 20px;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 30px;
+    background: transparent;
+}
+.price-btn-ticket {
+    display: inline-block;
+}
+.price-btn-ticket input {
+    width: inherit;
+}
+#ticket_price_form label {
+    width: 100%;
+}
+.submit{
+    width: 100%;
+    background-color: #2bde73;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+}
+span.myBtn {
+    width: 30px;
+    height: 47px;
+    background: #2bde73;
+    text-align: center;
+    line-height: 47px;
+    border-radius: 3px;
+    color: #fff;
+}
+span#btn-plus {
+    margin-left: 5px;
+}
+
+span#btn-minus {
+    margin-right: 5px;
+}
+span.authorName {
+    background: #000;
+    color: #2bde73;
+    padding: 10px;
+    font-weight: bold;
+}
+.sidebar[data-color=purple] li.active>a {
+    background-color: #0c0c0c;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4);
+}
+.card-icon {
+    background: black !important;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(66, 68, 66, 0.4) !important;
+}
+.blackButton {
+    background: #000 !important;
+}
+.dropdown-menu .dropdown-item:focus, .dropdown-menu .dropdown-item:hover, .dropdown-menu a:active, .dropdown-menu a:focus, .dropdown-menu a:hover{
+    background-color:#000 !important;
+}
+div#table {
+    background: #000;
+}
+div#cardHead {
+    background: #000;
+}

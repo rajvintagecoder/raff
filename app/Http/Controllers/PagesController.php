@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use DB;
+use App\Cart;
+
 
 class PagesController extends Controller
 {
     public function index()
     {
-        $products = Product::take(4)->get();
+        $products = Product::where('status', 1)->take(4)->get();
+        $endingSoon = DB::table('products')->whereRaw('DATEDIFF(end_date,updated_at) < 7')->where('status', 1)->take(4)->get();
         $title = 'Be a Seller, Be a Winner, Be a Rafflr';
-        return view('pages.index')->with('products', $products);
+        return view('pages.index', compact('products', 'endingSoon'));
     }
     public function about()
     {
@@ -21,9 +25,11 @@ class PagesController extends Controller
     public function liveraffles()
     {
         $title = 'Live Raffles';
-        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        $raffles = Product::where('status', 1)->take(4)->get();
+        $allRaffles = Product::all();
+        $endingSoon = DB::table('products')->whereRaw('DATEDIFF(end_date,updated_at) < 7')->where('status', 1)->take(4)->get();
 
-        return view('pages.live-raffles')->with('products', $products);
+        return view('pages.live-raffles', compact('raffles', 'endingSoon', 'allRaffles'));
     }
     public function pastwinners()
     {
@@ -54,5 +60,13 @@ class PagesController extends Controller
     {
         $products = Product::orderBy('created_at', 'desc')->paginate(8);
         return view('pages.view-all')->with('products', $products);
+    }
+    public function cart()
+    {
+        return view('pages.cart');
+    }
+    public function checkout()
+    {
+        return view('pages.checkout');
     }
 }

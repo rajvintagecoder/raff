@@ -37,10 +37,12 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="account-details" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   My Account <span class="caret"></span>
+								   
                                 </a>
-
+								
+								
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -53,7 +55,13 @@
                                     </form>
                                 </div>
                             </li>
+							<li class="social-icon"><a href=""><i class="fa fa-shopping-cart"></i></a></li>	
                         @endguest
+						<div class="on-resp">
+						<a href=""><i class="fa fa-instagram"></i></a>
+						<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						</div>
 		  <li class="social-icon"><a href=""><i class="fa fa-instagram"></i></a></li>	
 		  <li class="social-icon"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 		  <li class="social-icon"><a href=""><i class="fa fa-twitter"></i></a></li>		  	  

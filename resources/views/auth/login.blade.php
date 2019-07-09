@@ -30,19 +30,19 @@
                         </div>
                         <div class="link-container">
                         <div class="row padd0">
-                            <div class="col-md-6 ">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                            <div class="col-md-5 col-sm-5 ">
+                               
+                                    <div class="form-check" id="fcheck">
+                                    <label class="checkbox-container">{{ __('Remember Me') }}
+                                    <input type="checkbox"  name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <span class="checkmark"></span>
+                                     </label>  
                                 </div>
                             </div>
-                            <div class="col-md-6 ">
+                            <div class="col-md-7 col-sm-7 padd0 ">
                            @if (Route::has('password.request'))
                                     <a class="forget-link float-right" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __("I've forgotten my password") }}
                                     </a>
                                 @endif
                             </div>
@@ -50,8 +50,8 @@
                         </div>
                         <div class=" row">
                             
-                                <button type="submit" class="">
-                                    {{ __('Login') }}
+                                <button type="submit" class="buttonWithMTop">
+                                    {{ __('Sign In') }}
                                 </button>
 
                         </div>

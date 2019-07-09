@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@if (Auth::check())
-	{{ Auth::user()->id}}
-@endif
+
     <section id="white" class="padding">
 	<div class="container">
 		<div class="row">
@@ -16,7 +14,7 @@
 			<div class="col-md-6">
 				<div class="single-right-side">
 					<div class="title"><h2>{{$product->product_name}}</h2></div>
-                <h4>Ticket Prize: <span class="green">£{{$product->price}}</span></h4>
+                <h4>Ticket Price: <span class="green">£{{$product->price}}</span></h4>
                 <h4>Total Tickets: {{$product->quantity}}</h4>
                
                 @php
@@ -27,8 +25,12 @@
                     $hh = date('h',$endDate);
                     $mm = date('i',$endDate);
                     $ss = date('s',$endDate);
-                @endphp
-                <h4>Raffles closes in: <span class="green" id="days"></span>d <span class="green" id="hours"></span>h <span class="green" id="minutes"></span>m <span class="green" id="seconds"></span>s</h4>
+				@endphp
+				@if ($product->status == '0')
+					<h4>Raffle Closed</h4>
+				@else
+                <h4>Raffle closes in: <span class="green" id="days"></span>d <span class="green" id="hours"></span>h <span class="green" id="minutes"></span>m <span class="green" id="seconds"></span>s</h4>
+				@endif
                 
                 <div class="progess_box">
 						<div class="progress_ticket-info">
@@ -69,7 +71,11 @@
 						<div class="progress_ticket-info">
                    			 <span style="color:#191919;float:right;margin-top:8px;"><a href="{{route('faqs')}}">Free entry method</a></span>
 						</div>
+						@if ($product->status == 0)
+						<button type="submit" value="Submit" class="cartBtn" disabled>Enter Now</button>	
+						@else
 						<button type="submit" value="Submit" class="cartBtn">Enter Now</button>
+						@endif
 
 					</form>
 					
@@ -86,11 +92,12 @@
 				<div class="title"><h2>Description: </h2></div>
 			</div>
 			<div class="col-md-10">
-				<p style="margin-top:5px; margin-left:5px;">{{$product->description}}</p>
+				<p style="margin-top:5px; margin-left:20px;">{{$product->description}}</p>
 			</div>
 		</div>
 	</div>
 </section>
+@if ($product->status == '1')
 <script>
 var year = <?=$y?>;
 var month = <?=$m?>;
@@ -119,5 +126,5 @@ var a = setInterval(function (){
 		}
 	},1000);
 </script>
-
+@endif
 @endsection

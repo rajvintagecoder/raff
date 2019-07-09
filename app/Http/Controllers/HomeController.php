@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -26,10 +27,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
+
+        return view('user.account-details')->with('user', $user);
+    }
+    public function mytickets()
+    {
+        $user = auth()->user();
         $currentuserid = Auth::user()->id;
         $cartContent =  DB::table('products')
             ->join('carts', 'carts.productid', 'products.id')
             ->get();
-        return view('home')->with('cartContent', $cartContent);
+        return view('user.my-tickets')->with('cartContent', $cartContent);
     }
 }

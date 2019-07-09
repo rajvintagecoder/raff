@@ -19,8 +19,6 @@
         </div>           
     </div>
 </section>
-
-
 <section id="grey" class="padding">
 	<div class="container">
 		<div class="row">
@@ -30,7 +28,7 @@
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="progess_box">
 					<div class="box_img">
-					<a href="/products/{{$product->id}}"><img src="storage/product_images/{{$product->product_image}}"></a>
+					<a href="products/{{$product->id}}"><img src="storage/product_images/{{$product->product_image}}"></a>
 						<div class="prize">
 						<span>£{{$product->price * $product->quantity}}</span>
 						</div>
@@ -45,7 +43,7 @@
 
 							  </div>
 							</div>
-						<p class="ticketquantity"> {{$product->sold}} / {{$product->quantity}} tickets left </p>
+						<p class="ticketquantity"> {{$product->quantity - $product->sold}} / {{$product->quantity}} tickets left </p>
 						</div>
 					</div>
 				</div>
@@ -60,70 +58,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="title text-center"><h2>Ending Soon</h2></div>
+			@foreach ($endingSoon as $soon)
+			
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="progess_box">
 					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img5.jpg')}}"></a>
+					<a href="products/{{$soon->id}}"><img src="storage/product_images/{{$soon->product_image}}"></a>
+						<div class="prize">
+						<span>£{{$soon->price * $soon->quantity}}</span>
+						</div>
 						<div class="box_content text-center">
-							<h4>Rafflrs 1</h4>
+						<h4>{{$soon->product_name}}</h4>
+						<?php
+							$width = ($soon->sold/$soon->quantity)*100;
+						?>
 							<div class="progress">
 							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width:4%">					
+							  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:<?=round($width)?>%">	
+
 							  </div>
 							</div>
-							<p class="ticketquantity"> 48 / 50 tickets left </p>
+						<p class="ticketquantity"> {{$soon->quantity - $soon->sold}} / {{$soon->quantity}} tickets left </p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img6.jpg')}}"></a>
-						<div class="box_content text-center">
-							<h4>Rafflrs 2</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 85 / 100 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img7.jpg')}}"></a>
-						<div class="box_content text-center">
-							<h4>Rafflrs 3</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 70 / 100 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="progess_box">
-					<div class="box_img">
-						<a href="#"><img src="{{asset('images/img8.jpg')}}"></a>
-						<div class="box_content text-center">
-							<h4>Rafflrs 4</h4>
-							<div class="progress">
-							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-							  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">					
-							  </div>
-							</div>
-							<p class="ticketquantity"> 40 / 50 tickets left </p>
-						</div>
-					</div>
-				</div>
-			</div>
+				
+			@endforeach
+			
 		</div>
 	</div>
 </section>
@@ -218,9 +180,18 @@
 		<div class="row text-center">
 			<div class="title "><h2>Join our newsletter</h2></div>
 			<div class="newsletter">
-				<input type="text" placeholder="Your email address">
-				<div class="green_text"><a href="">Join Us</a></div>
+			<form action="{{route('subscribe')}}" method="post">
+				@csrf
+					<input type="email" placeholder="Your email address" name="emails" required>
+					<div class="green_text">
+						<button type="submit">Join Us</button>
+				</form>
 			</div>
+			 <?php if(isset($message)){ ?>
+				<div class="alert alert-success" role="alert">
+					<strong>Success.</strong> <?=$message?>
+				</div>
+				<?php } ?>
 		</div>
 	</div>
 </section>

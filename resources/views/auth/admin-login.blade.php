@@ -32,12 +32,12 @@
                          <div class="link-container">
                         <div class="row padd0">
                             <div class="col-md-6 ">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                <div class="form-check" id="fcheck">
+                                    <label class="checkbox-container">{{ __('Remember Me') }}
+                                    <input type="checkbox"  name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <span class="checkmark"></span>
+                                </label>  
+                             
                                 </div>
                             </div>
                             <div class="col-md-6 ">
@@ -52,7 +52,7 @@
 
                         <div class="row">
                             
-                                <button type="submit" class="">
+                                <button type="submit" class="buttonWithMTop">
                                     {{ __('Login') }}
                                 </button>
                            

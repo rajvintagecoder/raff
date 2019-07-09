@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">     
-    <link rel="stylesheet" href="{{asset('css/datetimepicker.css')}}">  
+     
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
-   
+    
 
 </head>
 <?php $route = Route::currentRouteName();?>
@@ -24,9 +24,8 @@
 
 
     <script src="{{asset('js/app.js')}}"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>    
 <script src="{{asset('js/slick.min.js')}}"></script>
-  <script src="{{asset('js/datetimepicker.js')}}"></script>
+  
 <script src="{{asset('js/custom-js.js')}}"></script>
 <script>
 $(".nextBtn").on("click", function(){
@@ -46,7 +45,6 @@ $(document).keyup(function(e) {
     $(".overlay, .nextModal").removeClass("active");
   }
 });
-$('#end_date').datetimepicker();
 
 var incrementPlus;
 var incrementMinus;
@@ -72,6 +70,41 @@ var incrementMinus = buttonMinus.click(function() {
       $('#ticket').val('Ticket');
   }
 });
+</script>
+<script>
+var year = $('#year').val();
+var month = $('#month').val();
+var day = $('#date').val();
+var hh = $('#hours').val();
+var mm = $('#minutes').val();
+var ss = $('#seconds').val();
+var userID = $('#userId').val(); 
+console.log(year+','+month+','+day+' '+hh+':'+mm+':'+ss);
+var deadline = new Date(year+','+month+','+day+' '+hh+':'+mm+':'+ss).getTime();
+var x = setInterval(function() { 
+var now = new Date().getTime(); 
+var t = deadline - now; 
+console.log(new Date());
+var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+console.log(seconds);
+$("#clockDiv").text( minutes + ":" + seconds ); 
+    if (t <= 0) { 
+       $("#clockDiv").text("CART EXPIRED"); 
+     $.ajax({
+           type:'GET',
+           url:"{{route('delete-cart')}}",
+           data:{userID:userID},
+           success:function(data){
+              console.log(data);
+           }
+
+        });
+       //clearInterval(x); 
+    } 
+}, 1000); 
 </script>
 </body>
 </html>

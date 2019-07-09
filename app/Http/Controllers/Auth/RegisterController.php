@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use app\Admin;
+
 
 class RegisterController extends Controller
 {
@@ -28,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -54,7 +58,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'phone' => 'required|numeric|digits_between:10,13',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'ageChecker' => ['required'],
+
         ]);
     }
 
@@ -66,12 +70,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'surname' => $data['surname'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'address_1' => '',
+            'address_2' => '',
+            'city' => '',
+            'zipcode' => ''
         ]);
+
+        return $user;
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        return $this->registered($request, $user) ?: redirect($this->redirectPath());
     }
 }

@@ -46,7 +46,7 @@ class ProductController extends Controller
             'quantity' => 'required',
             'end_date' => 'required',
             'product_image' => 'image|required|max:1999'
-        ]); 
+        ]);
 
         //Handle Image File
 

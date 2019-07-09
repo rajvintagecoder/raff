@@ -1,78 +1,102 @@
-@extends('layouts.app')
-
+@extends('layouts.adminLayout.admin_design')
 @section('content')
-   <section id="white" class="padding">
-        <div class="container">
-           <div class="row">
-                @include('inc.admin_left_nav')
-                <div class="col-md-8">
-                    <div class="row ">
-                <ul class="nav nav-tabs col-md-12">
-					<li class="active"><a class="active" data-toggle="tab" href="#live">live</a></li>
-					<li><a data-toggle="tab" href="#past">past</a></li>
-				</ul>	
-<a href="/products/create" class="btn round orange text-white pull-right"><i class="material-icons">add</i></a>
-               <div class="tab-content border_radius col-md-12">
-					<div id="live" class="tab-pane fade show active ">
-                        @foreach ($products as $product)
-                          <div class="row">  
-								<div class="col-md-7">
-									<div class="progess_box display_inline">
-									<img width="150" src="/storage/product_images/{{$product->product_image}}">
-									</div>	
-									<div class="display_inline part-right_img">
-										<h5>{{$product->product_name}}</h5>
-								   <p>Ticket Price: <span class="green">{{$product->price}}</span></p>
-									<p>Total Quantity: <span class="green">{{$product->quantity}}</span></p>
-									</div>
-								</div>
-							<div class="col-md-3">
-								<div class="part-right">
-									<h5>Raffle closes in:</h5>
-									<p><span class="green">15</span>d <span class="green">9</span>h <span class="green">22</span>m <span class="green">15</span>s</p>
-								</div>
-							</div>
-							<div class="col-md-2">
-									<a href="/products/{{$product->id}}/edit" class="btn round orange text-white"><i class="material-icons">edit</i></a>
-									<form action="{{ route('products.destroy',$product->id) }}" method="POST">
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn round red text-white"><i class="material-icons ">delete_forever</i></button>
-									</form>
-							</div>
-						</div>
-						
-                          <hr>
-                          <div class="height20px"></div>
-                        @endforeach
+    
+ <div class="content"> 
+	 <div class="container-fluid"> 
+		  
+		<a href="products/create" rel="tooltip" title="Add New Raffle" class="btn btn-warning btn-md blackButton">
+                     <i class="material-icons">add</i> Add New Raffle
+		</a>
+		<div class="height"></div>
+		<script>
+			var year = new Array();
+            var month = new Array();
+            var day = new Array();
+            var hh = new Array();
+            var mm = new Array();
+            var ss = new Array();
+            var ii = 0;
+		</script>
+		@php
+			$i =0;
+		@endphp
+		  @foreach ($products as $product)   
+          <div class="row">
+                        
+			<div class="col s3">
+				<img width="150" src="storage/product_images/{{$product->product_image}}" class="rafImg">
+			</div>
+     		<div class="col s3">
+				<h5>{{$product->product_name}}</h5>
+				<p>Ticket Price: <span class="green">{{$product->price}}</span></p>
+				<p>Total Quantity: <span class="green">{{$product->quantity}}</span></p>
+			</div>
+			<div class="col s3">
+				<h5>Raffle closes in:</h5>
+			<p>
+				@if ($product->status == 1)
+				@php	
+				$i++;
+				$endDate = strtotime($product->end_date);
+                    $y = date('Y',$endDate);
+                    $m = date('m',$endDate);
+                    $d = date('d',$endDate);
+                    $hh = date('h',$endDate);
+                    $mm = date('i',$endDate);
+					$ss = date('s',$endDate);
+					getTimer($y, $m, $d, $hh, $mm, $ss, $i);
+				
+				@endphp
+			
+				@else
+				<span class="bg-warning">Ended</span>
+				@endif
+				
+			</div>
+			<div class="col s3">
+				<div class="row">
+					<div class="col s6">
+						<a href="products/{{$product->id}}/edit" rel="tooltip" title="Edit Raffle" class="btn btn-info btn-sm roundBtn"><i class="material-icons">edit</i></a>
+					</div>
+					<div class="col s6">
+<form action="{{ route('products.destroy',$product->id) }}" method="POST">
+				@csrf
+				@method('DELETE')
+				<button type="submit" rel="tooltip" title="Delete Raffle" class="btn btn-danger  btn-sm roundBtn"><i class="material-icons ">delete_forever</i></button>
+				</form>
+					</div>
+				</div>
+				
+			</div>
+			</div>
+			<hr>
+			@endforeach
+			<script>
+				var a = setInterval(function() {
+					for (i = 1; i <= ii; i++) {
+						var count = new Date(year[i-1] + ',' + month[i-1] + ',' + day[i-1] + ' ' + hh[i-1] + ':' + mm[i-1] + ':' + ss[i-1]).getTime();
+						var now = new Date().getTime();
+						var b = count - now;
 
-					</div>
-					<div id="past" class="tab-pane fade ">
-						<div class="col-md-6">
-							<div class="progess_box display_inline">
-								<img width="150" src="images/img1.jpg">
-							</div>	
-							<div class="display_inline part-right_img">
-								<h5>Raffle Name11</h5>
-								<p>Ticket number: <span class="green">3</span></p>
-								<p>Ticket number: <span class="green">8</span></p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="part-right">
-								<h5>Raffle closes in:</h5>
-								<p><span class="green">15</span>d <span class="green">9</span>h <span class="green">22</span>m <span class="green">15</span>s</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-                 <div class="height20px"></div>
-				<ul class="pagination">
+						var days = Math.floor(b / (1000 * 60 * 60 * 24));
+						var hours = Math.floor(b % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+						var minutes = Math.floor(b % (1000 * 60 * 60) / (1000 * 60));
+						var seconds = Math.floor(b % (1000 * 60) / 1000);
+						
+						$('#days'+i).html(days + ' d ');
+						$('#hh'+i).html(hours + ' h ');
+						$('#mm' + i).html(minutes + ' m ');
+						$('#ss' + i).html(seconds + ' s ');
+					
+					}
+					if (b <= 0) {
+						clearInterval(a);
+					}
+				}, 1000);
+			</script>
+          <ul class="pagination">
           <li >{{$products->links()}}</li>
-          </ul>
-</div>
+          </ul>	
 	    </div>
-	</div>
-</section>
+</div>
 @endsection
