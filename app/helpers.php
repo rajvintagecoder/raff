@@ -11,12 +11,12 @@ if (!function_exists('getTimer')) {
         echo "<span id='ss$incr'></span>";
         ?>
         <script>
-            year.push( < ? = $y ? > );
-            month.push( < ? = $m ? > );
-            day.push( < ? = $d ? > );
-            hh.push( < ? = $hh ? > );
-            mm.push( < ? = $mm ? > );
-            ss.push( < ? = $ss ? > );
+            year.push( <?= $y ?> );
+            month.push( <?= $m ?> );
+            day.push( <?= $d ?> );
+            hh.push( <?= $hh ?> );
+            mm.push( <?= $mm ?> );
+            ss.push( <?= $ss ?> );
             ii++;
         </script>
     <?php

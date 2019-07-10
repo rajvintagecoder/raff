@@ -6,6 +6,9 @@ use App\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\User;
+use Stripe\Stripe;
+
 use function Opis\Closure\unserialize;
 use function Opis\Closure\serialize;
 
@@ -30,6 +33,7 @@ class CartController extends Controller
         $cartContent =  DB::table('products')
             ->join('carts', 'carts.productid', '=', 'products.id')
             ->where('userid', Auth::user()->id)
+            ->where('carts.status', 'U')
             ->get();
         return view('pages.cart')->with('cartContent', $cartContent);
     }
@@ -172,15 +176,58 @@ class CartController extends Controller
         $cart = new Cart();
         $cartData = $cart::all()->where('userid', $uid);
 
-        foreach ($cartData as $item) {
+        // foreach ($cartData as $item) {
 
-            $totalSold = Product::where('id', $item->productid)->get();
-            $sold = $totalSold['0']->sold - $item->quantity;
-            echo $sold;
-            DB::update('update products set sold = ?  where id = ?', [$sold, $item->productid]);
+        //     $totalSold = Product::where('id', $item->productid)->get();
+        //     $sold = $totalSold['0']->sold - $item->quantity;
+        //     echo $sold;
+        //     DB::update('update products set sold = ?  where id = ?', [$sold, $item->productid]);
+        // }
+        // DB::table('carts')->where('userid', $uid)->delete();
+        // DB::table('tickets')->where('uid', $uid)->delete();
+        // return view('home');
+    }
+
+    public function getCheckout()
+    {
+        $userDetail = User::all()->where('id', Auth::user()->id);
+        $cartDetail  = DB::table('products')
+            ->join('carts', 'carts.productid', '=', 'products.id')
+            ->where('userid', Auth::user()->id)
+            ->where('carts.status', 'U')
+            ->get();
+        return view('pages.checkout', compact('userDetail', 'cartDetail'));
+    }
+
+    public function postCheckout(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'card_no' => 'required|integer',
+            'expiry_month' => 'required|integer',
+            'expiry_year' => 'required|integer',
+            'cvv' => 'required|integer',
+        ]);
+
+
+
+        \Stripe\Stripe::setApiKey('sk_test_IpgxtJV9dTAAVPcKo0V25zlR');
+
+        // Token is created using Checkout or Elements!
+        // Get the payment token ID submitted by the form:
+        $token = $_POST['stripeToken'];
+        // dd($grandTotal = $_POST['cartTotal']);
+        try {
+            $charge = \Stripe\Charge::create([
+                'amount' => $_POST['cartTotal'] * 1000,
+                'currency' => 'usd',
+                'description' => 'Test Charge',
+                'source' => $token,
+            ]);
+        } catch (\Exception $e) {
+            // return redirect('checkout')->with('error', $e . getMessage());
         }
-        DB::table('carts')->where('userid', $uid)->delete();
-        DB::table('tickets')->where('uid', $uid)->delete();
-        return view('home');
+        DB::update('update carts set status = ? where userid = ?', ['P', Auth::user()->id]);
+        return redirect('success');
     }
 }

@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">     
-     
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
-    
+   
+
 
 </head>
 <?php $route = Route::currentRouteName();?>
@@ -23,10 +23,12 @@
     </div>
 
 
-    <script src="{{asset('js/app.js')}}"></script> 
+<script src="{{asset('js/app.js')}}"></script> 
 <script src="{{asset('js/slick.min.js')}}"></script>
-  
 <script src="{{asset('js/custom-js.js')}}"></script>
+
+@yield('scripts')
+
 <script>
 $(".nextBtn").on("click", function(){
   $(".overlay, .nextModal").addClass("active");
@@ -105,6 +107,9 @@ $("#clockDiv").text( minutes + ":" + seconds );
        //clearInterval(x); 
     } 
 }, 1000); 
+</script>
+  
+
 </script>
 </body>
 </html>

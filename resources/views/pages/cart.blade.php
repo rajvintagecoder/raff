@@ -72,7 +72,7 @@
 					<div class="col-md-3 offset-md-3">
 						<div class="text-right">
                         <h5>Total: <span class="green">£<?=money_format("%.2n",$totalCost)?></span></h5>
-                        <div class="site_green_btn"><a style="margin-top:15px;" href="cart-status/{{$userID}}">Checkout</a></div>
+                        <div class="site_green_btn"><a style="margin-top:15px;" href="{{route('checkout')}}">Checkout</a></div>
 						</div>
 					</div>
 				</div>

@@ -65,8 +65,8 @@ class PagesController extends Controller
     {
         return view('pages.cart');
     }
-    public function checkout()
+    public function checkoutSuccess()
     {
-        return view('pages.checkout');
+        return view('pages.success');
     }
 }

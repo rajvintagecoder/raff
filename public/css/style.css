@@ -32,7 +32,22 @@
 
 }
 /*Custom Classes*/
+button.greenSubmitBtn {
+    border: none;
+    color: #fff;
+    background-color: #2ade73;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 18px;
+    display: inline-block;
+    cursor:pointer;
+}
 
+.greenBtnContainer {
+    max-width: 144px !important;
+    margin: 10px auto;
+   
+}
 span#clockDiv {
     background: #69df74;
     padding: 3px 12px;
@@ -444,6 +459,7 @@ ul.sub-menu li:last-child a {
     display: inline-block;
     margin-top: 30px;
 }
+
 .greenbar {
     background-color: #2ade73;
     padding: 12px 0px;
@@ -1033,6 +1049,47 @@ p.des-p {
 .height_vh #white {
     min-height: 83vh;
 }
+
+/*checkout*/
+.checkout .inner-check {
+    display: inline-block;
+    width: 100%;
+}
+.border-black {
+    
+	border-color: #191919;
+}
+.inner-check ul {
+    list-style: none;
+    padding: 0;
+}
+.title h4{color:#191919;}
+.payment-form input {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: rgba(153, 153, 153, 0.23921568627450981);
+    padding: 3px 10px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.payment-form input::placeholder,.payment-form label {
+    color: rgba(153, 153, 153, 0.23921568627450981);
+}
+.payment-form .row input {
+    width: 90%;
+}
+.payment-form label {
+    margin-bottom: 0px;
+}
+.payment-form .site_green_btn a {
+    padding: 10px 30px;
+}
+.total-div {
+    display: inline-block;
+    width: 100%;
+}
+
 /*responsive*/
 @media(max-width:1199px){
 .card button.btn.btn-link {

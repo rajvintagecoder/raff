@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@index')->name('home');
+Route::get('home', 'PagesController@index');
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('live-raffles', 'PagesController@liveraffles')->name('liveraffles');
 Route::get('past-winners', 'PagesController@pastwinners')->name('pastwinners');
@@ -22,8 +23,12 @@ Route::post('subscriber', 'NewsLettersController@store')->name('subscribe');
 Route::get('terms-of-play', 'PagesController@termsplay')->name('termsplay');
 Route::get('privacy', 'PagesController@privacy')->name('privacy');
 Route::get('view-all', 'PagesController@viewall')->name('viewall');
-Route::get('checkout', 'PagesController@checkout')->name('checkout');
-
+Route::get('success', 'PagesController@checkoutSuccess')->name('success');
+//Checkout
+Route::get('checkout', 'CartController@getCheckout')->name('checkout');
+Route::post('checkout', 'CartController@postCheckout')->name('checkout');
+// Route::get('stripe', 'CheckoutController@stripe');
+// Route::post('stripe', 'CheckoutController@stripePost')->name('stripe.post');
 
 Auth::routes(['verify' => true]);
 Route::get('account-details', 'HomeController@index')->name('index');
